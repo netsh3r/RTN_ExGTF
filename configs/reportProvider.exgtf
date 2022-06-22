@@ -1,0 +1,40 @@
+@*.cs
+namespace Bars.Rtn.ShowCase.Module.Services.Svody.SvodyReportImpl
+{
+    using Bars.Rtn.ShowCase.Model.Dto.Svody;
+    using Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl;
+    using Bars.Rtn.ShowCase.Model.Interfaces.Svody;
+
+    using System;
+
+    /// <summary>
+    /// Класс для формирования отчетов по форме <$table_rus_name$> для СВОДов
+    /// </summary>
+
+    internal class Form<$short_table_name$>SvodyReport : AbstractSvodyReport<Form<$short_table_name$>ShowCase>
+    {
+        public Form<$short_table_name$>SvodyReport(ISvodyShowCaseDataProvider<Form<$short_table_name$>ShowCase> svodyShowCaseDataProvider)
+            : base(svodyShowCaseDataProvider)
+        {
+        }
+        protected override SvodyTableDto[] GetTableData(Form<$short_table_name$>ShowCase[] showCaseData)
+        {
+            return GetSectionTableDto(showCaseData);
+        }
+
+        protected override SvodyFreeCellDto[] GetFreeCells(Form<$short_table_name$>ShowCase[] showCaseData)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Заполнение блоков "Таблица_1", "Таблица_2" для строки витрины
+        /// </summary>
+        private SvodyTableDto[] GetSectionTableDto(Form<$short_table_name$>ShowCase[] showCaseDataElements)
+        {
+            return GetSectionTableDtoByGroup(showCaseDataElements);
+        }
+
+        protected override Func<Form<$short_table_name$>ShowCase, RowCodeGroup> KeySelectorExpression => x => new RowCodeGroup(x.ColumnCode, x.Tables);
+    }
+}

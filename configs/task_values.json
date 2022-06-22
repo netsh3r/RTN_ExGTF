@@ -1,0 +1,74 @@
+[
+	{
+		"Name": "8_13",
+		"Values": [
+			{
+				"Name": "table_rus_name",
+				"Value": "Форма_8_13"
+			},
+			{
+				"Name": "short_table_name",
+				"Value": "8_13"
+			},
+			{
+				"Name": "table_name",
+				"Value": "t_form_8_13"
+			},
+			{
+				"Name": "rowCodes",
+				"IsArray": "true",
+				"Value": [
+					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+				]
+			}
+		]
+	},
+	{
+		"Name": "8_14",
+		"Values": [
+			{
+				"Name": "table_rus_name",
+				"Value": "Форма_8_14"
+			},
+			{
+				"Name": "short_table_name",
+				"Value": "8_14"
+			},
+			{
+				"Name": "table_name",
+				"Value": "t_form_8_14"
+			},
+			{
+				"Name": "rowCodes",
+				"IsArray": "true",
+				"Value": [
+					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+				]
+			}
+		]
+	},
+	{
+		"Name": "8_135",
+		"Values": [
+			{
+				"Name": "table_rus_name",
+				"Value": "Форма_8_135"
+			},
+			{
+				"Name": "short_table_name",
+				"Value": "8_135"
+			},
+			{
+				"Name": "table_name",
+				"Value": "t_form_8_135"
+			},
+			{
+				"Name": "rowCodes",
+				"IsArray": "true",
+				"Value": [
+					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+				]
+			}
+		]
+	}
+]

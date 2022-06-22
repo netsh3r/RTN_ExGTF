@@ -1,0 +1,24 @@
+{
+  "Provider": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module\\Services\\Svody\\SvodyReportImpl",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\reportProvider.exgtf"
+  },
+  "Map": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Model\\Map\\ShowCaseMapImpl",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\reportMap.exgtf"
+  },
+  "Entity": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Model\\Entities\\ShowCaseImpl",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\reportEntity.exgtf"
+  },
+  "ModelService": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module",
+    "IsNeedCreate": "false",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\modelService.exgtf"
+  },
+  "SvodyShowCaseTableHelper": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module\\Helpers",
+    "IsNeedCreate": "false",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\SvodyShowCaseTableHelper.exgtf"
+  }
+}

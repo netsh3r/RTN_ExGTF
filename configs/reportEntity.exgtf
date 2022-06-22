@@ -1,0 +1,32 @@
+@*.cs
+namespace Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl
+{
+    using BarsUp.Utils;
+    using System;
+
+    /// <summary>
+    /// Сущность витрины <$table_rus_name$>
+    /// </summary>
+    public class Form<$short_table_name$>ShowCase : BaseShowCase
+    {
+		/// <summary>
+        /// Таблица
+        /// </summary>
+        [Display("Таблица")]
+        public virtual string Tables { get; set; }
+		
+    	/// <summary>
+        /// Код
+        /// </summary>
+        [Display("Код колонки")]	
+    	public virtual string ColumnCode { get; set; }
+
+        [##<i:%$rowCodes$%
+        /// <summary>
+        /// Код строки {%i%}
+        /// </summary>
+        [Display("Код строки {%i%}")]
+        public virtual string RowCode{%i%} {{ get; set; }}
+		>##]
+    }
+}

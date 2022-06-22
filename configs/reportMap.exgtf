@@ -1,0 +1,18 @@
+@*.cs
+namespace Bars.Rtn.ShowCase.Model.Map.ShowCaseMapImpl
+{
+    using Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl;
+
+    public class Form<$short_table_name$>ShowCaseMap : BaseShowCaseMap<Form<$short_table_name$>ShowCase>
+    {
+        public const string _tableName = "<$table_name$>";
+
+        public Form<$short_table_name$>ShowCaseMap() : base(_tableName)
+        {
+			Property(x => x.Tables, p => p.Column("tables"));
+			Property(x => x.ColumnCode, p => p.Column("column_code"));
+			
+			[#Property(x => x.RowCode<$rowCodes$>, p => p.Column("row_code_<$rowCodes$>"));#]
+        }
+    }
+}
