@@ -1,2 +1,0 @@
-@*.cs
-            Container.RegisterSessionScoped<ISvodyReport, Form<$short_table_name$>SvodyReport>(nameof(FormGsSvodyReport));

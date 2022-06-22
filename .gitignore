@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/configs/SvodyShowCaseTableHelper.exgtf.bak
+/configs/modelService.exgtf.bak
+/configs/reportEntity.exgtf.bak

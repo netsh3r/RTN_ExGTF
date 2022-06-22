@@ -12,7 +12,7 @@ namespace Bars.Rtn.ShowCase.Model.Map.ShowCaseMapImpl
 			Property(x => x.Tables, p => p.Column("tables"));
 			Property(x => x.ColumnCode, p => p.Column("column_code"));
 			
-			[#Property(x => x.RowCode<$rowCodes$>, p => p.Column("row_code_<$rowCodes$>"));#]
+			[#<i:<$rowCodes$>Property(x => x.RowCode{%i%}, p => p.Column("row_code_{%i%}"));>#]
         }
     }
 }
