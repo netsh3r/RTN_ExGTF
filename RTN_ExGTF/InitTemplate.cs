@@ -32,22 +32,24 @@
         public void Create(string lastMigration, Queue<string> migrations)
         {
             var taskValues = GetTaskValues();
-            var migration = lastMigration;
             foreach (var taskValue in taskValues)
             {
                 var dict = ExGTF_ParamsHelper.GetParams(taskValue.Values);
-                dict.Add("Migration", "migration");
+                var migration = migrations.Dequeue();
+                dict.Add("LastMigration", lastMigration);
+                dict.Add("Migration", migration);
                 foreach (var confValue in _configValues)
                 {
                     var fileName = taskValue.Name;
                     if (confValue.confName == "Migration")
                     {
-                        fileName = migrations.Dequeue();
-                        migration = fileName;
+                        fileName = migration;
                     }
                     
-                    DoGenerateTemplate(confValue.confValue, string.Format(confValue.fileNameFormat, taskValue.Name), dict);
+                    DoGenerateTemplate(confValue.confValue, string.Format(confValue.fileNameFormat, taskValue.Name, fileName), dict);
                 }
+
+                lastMigration = migration;
             }
         }
 
