@@ -21,7 +21,7 @@
             _configValues = new[]
             {
                 ("Provider", config.Provider, "Form{0}SvodyReport"),
-                ("Migration", config.Migration, "Migration_{1}"),
+                ("Migration", config.Migration, "{1}"),
                 ("Map", config.Map, "Form{0}ShowCaseMap"),
                 ("Entity", config.Entity, "Form{0}ShowCase"),
                 ("ModelService", config.ModelService, "Module.Service"),
