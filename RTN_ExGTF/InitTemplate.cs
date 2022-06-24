@@ -8,10 +8,11 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using ExGTF_ParamsHelper = ExGTF.Reader.ParamsHelper;
 
     internal class InitTemplate
     {
-        private readonly (ConfigValue confValue, string fileNameFormat)[] _configValues;
+        private readonly (string confName, ConfigValue confValue, string fileNameFormat)[] _configValues;
 
         public InitTemplate()
         {
@@ -19,44 +20,35 @@
             var config = JsonConvert.DeserializeObject<Config>(sr.ReadToEnd());
             _configValues = new[]
             {
-                (config.Provider, "Form{0}SvodyReport"),
-                (config.Map, "Form{0}ShowCaseMap"),
-                (config.Entity, "Form{0}ShowCase"),
-                (config.ModelService, "Module.Service"),
-                (config.SvodyShowCaseTableHelper, "SvodyShowCaseTableHelper"),
+                ("Provider", config.Provider, "Form{0}SvodyReport"),
+                ("Migration", config.Migration, "Migration_{1}"),
+                ("Map", config.Map, "Form{0}ShowCaseMap"),
+                ("Entity", config.Entity, "Form{0}ShowCase"),
+                ("ModelService", config.ModelService, "Module.Service"),
+                ("SvodyShowCaseTableHelper", config.SvodyShowCaseTableHelper, "SvodyShowCaseTableHelper"),
             };
         }
 
-        public void Create()
+        public void Create(string lastMigration, Queue<string> migrations)
         {
             var taskValues = GetTaskValues();
+            var migration = lastMigration;
             foreach (var taskValue in taskValues)
             {
-                var dict = DoPrepareValues(taskValue.Values);
+                var dict = ExGTF_ParamsHelper.GetParams(taskValue.Values);
+                dict.Add("Migration", "migration");
                 foreach (var confValue in _configValues)
                 {
+                    var fileName = taskValue.Name;
+                    if (confValue.confName == "Migration")
+                    {
+                        fileName = migrations.Dequeue();
+                        migration = fileName;
+                    }
+                    
                     DoGenerateTemplate(confValue.confValue, string.Format(confValue.fileNameFormat, taskValue.Name), dict);
                 }
             }
-        }
-
-        private Dictionary<string, object> DoPrepareValues(TaskValue[] taskValues)
-        {
-            var dictValue = new Dictionary<string, object>();
-            foreach (var taskValue in taskValues)
-            {
-                if (taskValue.IsArray)
-                {
-                    var arrayValue = JsonConvert.DeserializeObject<string[]>(taskValue.Value.ToString());
-                    dictValue.Add(taskValue.Name, arrayValue);
-                }
-                else
-                {
-                    dictValue.Add(taskValue.Name, taskValue.Value);
-                }
-            }
-
-            return dictValue;
         }
 
         private void DoGenerateTemplate(ConfigValue confValue, string fileName, Dictionary<string, object> dictValues)

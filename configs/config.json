@@ -16,6 +16,10 @@
     "IsNeedCreate": "false",
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\modelService.exgtf"
   },
+  "Migration": {
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module",
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\migration.exgtf"
+  },
   "SvodyShowCaseTableHelper": {
     "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module\\Helpers",
     "IsNeedCreate": "false",

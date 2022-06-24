@@ -1,14 +1,10 @@
 ﻿namespace RTN_ExGTF.configs
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
+    using ExGTF.Reader.Props;
+    
     internal class TaskValues
     {
         public string Name { get; set; }
-        public TaskValue[] Values { get; set; }
+        public DictValue[] Values { get; set; }
     }
 }

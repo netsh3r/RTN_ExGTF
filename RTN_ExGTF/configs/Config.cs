@@ -24,6 +24,11 @@
         /// Регистрация сервисов
         /// </summary>
         public ConfigValue ModelService { get; set; }
+        
+        /// <summary>
+        /// Регистрация сервисов
+        /// </summary>
+        public ConfigValue Migration { get; set; }
 
         /// <summary>
         /// Класс сопоставления приходящего formCode и названий SvodyReport'ов.

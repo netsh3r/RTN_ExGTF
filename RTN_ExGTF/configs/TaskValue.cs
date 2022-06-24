@@ -22,6 +22,11 @@
         public bool IsArray { get; set; } = false;
 
         /// <summary>
+        /// Признак массива объектов
+        /// </summary>
+        public bool IsArrayObjects { get; set; } = false;
+
+        /// <summary>
         /// Значение
         /// </summary>
         public object Value { get; set; }

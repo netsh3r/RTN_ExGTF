@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTN_ExGTF", "RTN_ExGTF\RTN_ExGTF.csproj", "{5E0E4DB3-2364-4AEA-898A-4A8491C4ADF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTN_Values_ExGTF", "RTN_Values_ExGTF\RTN_Values_ExGTF.csproj", "{39155799-D883-4D13-9EDB-E3E13083CA09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5E0E4DB3-2364-4AEA-898A-4A8491C4ADF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E0E4DB3-2364-4AEA-898A-4A8491C4ADF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E0E4DB3-2364-4AEA-898A-4A8491C4ADF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39155799-D883-4D13-9EDB-E3E13083CA09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39155799-D883-4D13-9EDB-E3E13083CA09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39155799-D883-4D13-9EDB-E3E13083CA09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39155799-D883-4D13-9EDB-E3E13083CA09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
