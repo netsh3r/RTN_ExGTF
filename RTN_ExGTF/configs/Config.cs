@@ -34,5 +34,10 @@
         /// Класс сопоставления приходящего formCode и названий SvodyReport'ов.
         /// </summary>
         public ConfigValue SvodyShowCaseTableHelper { get; set; }
+
+        /// <summary>
+        /// Регистрация таблиц
+        /// </summary>
+        public ConfigValue ShowCaseTables { get; set; }
     }
 }

@@ -1,0 +1,4 @@
+@*@.cs
+        /// <summary>Форма <$table_rus_name$></summary>
+        public static readonly Table Form<$short_table_name$>ShowCase =
+            "aggregate.<$table_name$>";

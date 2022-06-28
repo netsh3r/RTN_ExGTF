@@ -26,6 +26,7 @@
                 ("Entity", config.Entity, "Form{0}ShowCase"),
                 ("ModelService", config.ModelService, "Module.Service"),
                 ("SvodyShowCaseTableHelper", config.SvodyShowCaseTableHelper, "SvodyShowCaseTableHelper"),
+                ("ShowCaseTables", config.SvodyShowCaseTableHelper, "ShowCaseTables")
             };
         }
 

@@ -25,7 +25,7 @@
     "IsNeedCreate": "false",
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\SvodyShowCaseTableHelper.exgtf"
   },
-  "ShowCaseTables": {
+  "SvodyShowCaseTableHelper": {
     "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module\\Helpers",
     "IsNeedCreate": "false",
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\SvodyShowCaseTableHelper.exgtf"
