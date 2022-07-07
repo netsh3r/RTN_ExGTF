@@ -61,8 +61,7 @@
                     }
                     Console.WriteLine("----------");
                 }
-                Console.WriteLine("---------------------------");
-
+                Console.WriteLine("###########################");
                 lastMigration = migration;
             }
         }
