@@ -26,15 +26,17 @@
                 ("Entity", config.Entity, "Form{0}ShowCase"),
                 ("ModelService", config.ModelService, "Module.Service"),
                 ("SvodyShowCaseTableHelper", config.SvodyShowCaseTableHelper, "SvodyShowCaseTableHelper"),
-                ("ShowCaseTables", config.SvodyShowCaseTableHelper, "ShowCaseTables")
+                ("ShowCaseTables", config.ShowCaseTables, "ShowCaseTables")
             };
         }
 
-        public void Create(string lastMigration, Queue<string> migrations)
+        public void Create(Queue<string> migrations)
         {
             var taskValues = GetTaskValues();
+            var lastMigration = migrations.Dequeue();
             foreach (var taskValue in taskValues)
             {
+                Console.WriteLine($"Генерация {taskValue.Name}");
                 var dict = ExGTF_ParamsHelper.GetParams(taskValue.Values);
                 var migration = migrations.Dequeue();
                 dict.Add("LastMigration", lastMigration);
@@ -46,9 +48,20 @@
                     {
                         fileName = migration;
                     }
-                    
-                    DoGenerateTemplate(confValue.confValue, string.Format(confValue.fileNameFormat, taskValue.Name, fileName), dict);
+
+                    Console.WriteLine($"Генерация {confValue.confName}");
+                    try
+                    {
+                        DoGenerateTemplate(confValue.confValue, string.Format(confValue.fileNameFormat, taskValue.Name, fileName), dict);
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        return;
+                    }
+                    Console.WriteLine("----------");
                 }
+                Console.WriteLine("---------------------------");
 
                 lastMigration = migration;
             }
@@ -64,6 +77,11 @@
         {
             using var sr = new StreamReader("../../../../configs/task_values.json");
             var taskValues = JsonConvert.DeserializeObject<TaskValues[]>(sr.ReadToEnd());
+            if (taskValues == null)
+            {
+                throw new Exception("Не удалось получить список данных");
+            }
+
             return taskValues;
         }
     }

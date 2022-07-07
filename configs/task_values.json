@@ -1,79 +1,241 @@
 [
+	
 	{
-		"Name": "8_13",
+		"Name": "Ykyam01",
 		"Values": [
 			{
 				"Name": "table_rus_name",
-				"Value": "Форма_8_13"
+				"Value": "Форма_УК_ЯМ_01"
 			},
 			{
 				"Name": "short_table_name",
-				"Value": "8_13"
+				"Value": "Ykyam01"
 			},
 			{
 				"Name": "table_name",
-				"Value": "t_form_8_13"
+				"Value": "t_form_yk_yam_01"
 			},
+			{
+				"Name": "table_code1",
+				"Value": "УК_ЯМ_01"
+			},	
+			{
+				"Name": "table_code2",
+				"Value": "УК_ЯМ_02"
+			},	
+			{
+				"Name": "table_code3",
+				"Value": "Форма_УК_ЯМ_02"
+			},						
+			{
+				"Name": "table_code4",
+				"Value": "УК_ЯМ_03"
+			},
+			{
+				"Name": "table_code5",
+				"Value": "Форма_УК_ЯМ_03"
+			},					
+			{
+				"Name": "table_code6",
+				"Value": "УК_ЯМ_04"
+			},	
+			{
+				"Name": "table_code7",
+				"Value": "Форма_УК_ЯМ_04"
+			},
+			{
+				"Name": "organization",
+				"Value": "true"
+			},				
 			{
 				"Name": "rowCodes",
 				"IsArray": "true",
 				"Value": [
-					"001", "002", "003", "004", "005", "006", "007", "008", "009"
-				]
-			},
-			{
-				"Name": "columnCodes",
-				"IsArray": "true",
-				"Value": [
-					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+					"001", 	"002", 	"003", 	"004", 	"005", 	"006", 	"007", 	"008", 	"081", 	"082", 	"083", 	"084", 	"009", 	"091", 	"092", 	"093", 	"010", 	"101", 	"102", 	"103", 	"104", 	"011", 	"012", 	"013", 	"014", 	"015", 	"018"
 				]
 			}
 		]
 	},
 	{
-		"Name": "8_14",
+		"Name": "Ykrb01",
 		"Values": [
 			{
 				"Name": "table_rus_name",
-				"Value": "Форма_8_14"
+				"Value": "Форма_УК_РВ_01"
 			},
 			{
 				"Name": "short_table_name",
-				"Value": "8_14"
+				"Value": "Ykrb01"
 			},
 			{
 				"Name": "table_name",
-				"Value": "t_form_8_14"
+				"Value": "t_form_yk_rb_01"
 			},
+			{
+				"Name": "table_code1",
+				"Value": "УК_РВ_01"
+			},
+			{
+				"Name": "table_code2",
+				"Value": "УК_РВ_03"
+			},
+			{
+				"Name": "table_code3",
+				"Value": "Форма_УК_РВ_03"
+			},					
+			{
+				"Name": "table_code4",
+				"Value": "УК_РВ_04"
+			},	
+			{
+				"Name": "table_code5",
+				"Value": "Форма_УК_РВ_04"
+			},
+			{
+				"Name": "organization",
+				"Value": "true"
+			},			
 			{
 				"Name": "rowCodes",
 				"IsArray": "true",
 				"Value": [
-					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+					"001", 	"002", 	"003", 	"004", 	"005", 	"006", 	"007", 	"071", 	"072", 	"073", 	"008", 	"081", 	"082", 	"083", 	"009", 	"091", 	"092", 	"093", 	"094", 	"010", 	"011", 	"012", 	"013", 	"014" 
 				]
 			}
 		]
 	},
 	{
-		"Name": "8_135",
+		"Name": "Fzyam01",
 		"Values": [
 			{
 				"Name": "table_rus_name",
-				"Value": "Форма_8_135"
+				"Value": "Форма_ФЗ_ЯМ_01"
 			},
 			{
 				"Name": "short_table_name",
-				"Value": "8_135"
+				"Value": "Fzyam01"
 			},
 			{
 				"Name": "table_name",
-				"Value": "t_form_8_135"
+				"Value": "t_form_fz_yam_01"
 			},
+			{
+				"Name": "table_code1",
+				"Value": "ФЗ_ЯМ_01"
+			},
+			{
+				"Name": "table_code2",
+				"Value": "ФЗ_ЯМ_02"
+			},
+			{
+				"Name": "table_code3",
+				"Value": "ШаблонФЗ_ЯМ_02"
+			},						
+			{
+				"Name": "table_code4",
+				"Value": "ФЗ_ЯМ_03"
+			},	
+			{
+				"Name": "table_code5",
+				"Value": "ШаблонФЗ_ЯМ_03"
+			},				
+			{
+				"Name": "table_code6",
+				"Value": "ФЗ_ЯМ_04"
+			},	
+			{
+				"Name": "table_code7",
+				"Value": "ШаблонФЗ_ЯМ_04"
+			},		
+			{
+				"Name": "organization",
+				"Value": "true"
+			},				
 			{
 				"Name": "rowCodes",
 				"IsArray": "true",
 				"Value": [
-					"001", "002", "003", "004", "005", "006", "007", "008", "009"
+					"001", 	"002", 	"003", 	"004", 	"005", 	"006", 	"007", 	"008", 	"009", 	"010", 	"011", 	"012", 	"013", 	"014", 	"015", 	"016", 	"017", 	"018", 	"019"
+				]
+			}
+		]
+	},
+	{
+		"Name": "Fzrb01",
+		"Values": [
+			{
+				"Name": "table_rus_name",
+				"Value": "Форма_ФЗ_РВ_01"
+			},
+			{
+				"Name": "short_table_name",
+				"Value": "Fzrb01"
+			},
+			{
+				"Name": "table_name",
+				"Value": "t_form_fz_rb_01"
+			},
+			{
+				"Name": "table_code1",
+				"Value": "ФЗ_РВ_01"
+			},
+			{
+				"Name": "table_code2",
+				"Value": "ФЗ_РВ_02"
+			},
+			{
+				"Name": "table_code3",
+				"Value": "Форма_ФЗ_РВ_02"
+			},			
+			{
+				"Name": "organization",
+				"Value": "true"
+			},			
+			{
+				"Name": "rowCodes",
+				"IsArray": "true",
+				"Value": [
+					"001", 	"002", 	"003", 	"004", 	"005", 	"006", 	"007", 	"008", 	"009", 	"010", 	"011", 	"012", 	"013", 	"014", 	"015"
+				]
+			}
+		]
+	},
+	{
+		"Name": "Fzrb03",
+		"Values": [
+			{
+				"Name": "table_rus_name",
+				"Value": "Форма_ФЗ_РВ_03"
+			},
+			{
+				"Name": "short_table_name",
+				"Value": "Fzrb03"
+			},
+			{
+				"Name": "table_name",
+				"Value": "t_form_fz_rb_03"
+			},
+			{
+				"Name": "table_code1",
+				"Value": "ФЗ_РВ_03"
+			},
+			{
+				"Name": "table_code2",
+				"Value": "ФЗ_РВ_04"
+			},
+			{
+				"Name": "table_code2_modal_table",
+				"Value": "Форма_ФЗ_РВ_04"
+			},			
+			{
+				"Name": "organization",
+				"Value": "true"
+			},			
+			{
+				"Name": "rowCodes",
+				"IsArray": "true",
+				"Value": [
+					"001", 	"002", 	"003", 	"004", 	"005", 	"006", 	"007", 	"008", 	"009", 	"010", 	"011", 	"012", 	"013", 	"014", 	"015"
 				]
 			}
 		]

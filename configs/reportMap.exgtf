@@ -1,4 +1,4 @@
-@*.cs
+@some@.cs
 namespace Bars.Rtn.ShowCase.Model.Map.ShowCaseMapImpl
 {
     using Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl;
@@ -9,6 +9,12 @@ namespace Bars.Rtn.ShowCase.Model.Map.ShowCaseMapImpl
 
         public Form<$short_table_name$>ShowCaseMap() : base(_tableName)
         {
+            [??{<$organization$>==%false%}
+            Property(x => x.FIO, p => p.Column("FIO"));
+            ??]
+            [??{<$organization$>==%true%}
+            Property(x => x.Organization, p => p.Column("organization"));
+            ??]
 			Property(x => x.Tables, p => p.Column("tables"));
 			Property(x => x.ColumnCode, p => p.Column("column_code"));
 			

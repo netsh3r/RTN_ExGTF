@@ -1,4 +1,4 @@
-@*.cs
+@some@.cs
 namespace Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl
 {
     using BarsUp.Utils;
@@ -14,6 +14,21 @@ namespace Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl
         /// </summary>
         [Display("Таблица")]
         public virtual string Tables { get; set; }
+        
+        [??{<$organization$>==%false%}
+        /// <summary>
+        /// Субъект РФ
+        /// </summary>
+        [Display("ФИО")]
+        public virtual string FIO { get; set; }
+        ??]
+        [??{<$organization$>==%true%}
+        /// <summary>
+        /// Субъект РФ
+        /// </summary>
+        [Display("Организация")]
+        public virtual string Organization { get; set; }
+        ??]
 		
     	/// <summary>
         /// Код

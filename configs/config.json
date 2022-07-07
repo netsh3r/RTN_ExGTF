@@ -17,7 +17,7 @@
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\modelService.exgtf"
   },
   "Migration": {
-    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module",
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Migrations\\Migration\\2022\\07",
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\migration.exgtf"
   },
   "SvodyShowCaseTableHelper": {
@@ -26,8 +26,8 @@
     "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\SvodyShowCaseTableHelper.exgtf"
   },
   "ShowCaseTables": {
-    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Module\\Helpers",
+    "Path": "C:\\projtects\\RTN\\src\\modules\\Bars.Rtn.ShowCase\\Bars.Rtn.ShowCase.Model\\Map",
     "IsNeedCreate": "false",
-    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\SvodyShowCaseTableHelper.exgtf"
+    "Template": "C:\\Users\\dmitr\\Documents\\Tests\\RTN_ExGTF\\configs\\ShowCaseTables.exgtf"
   }
 }

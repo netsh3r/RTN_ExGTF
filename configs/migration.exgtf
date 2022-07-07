@@ -1,0 +1,110 @@
+@*@.cs
+namespace Bars.Rtn.ShowCase.Migrations.Migration._2022._07
+ {
+    using Bars.Rtn.Common.Extensions;
+    using Model.Map;
+    
+    using BarsUp.Ecm7.Framework;
+    using BarsUp.Modules.PostgreSql.Migrations;
+    
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    
+    [Migration("<$Migration$>")]
+    [MigrationDependsOn(typeof(<$LastMigration$>))]
+    public class <$Migration$> : BaseMigration
+    {
+        private void AddTable(SchemaQualifiedObjectName table, string tableComment, ICollection<Column> columns, bool useInt64Id = true)
+        {
+            AddTableWithId(table, tableComment, useInt64Id);
+            foreach (var column in columns)
+            {
+                Database.AddColumnWithComment(table, column, column.Comment);
+            }
+        }
+        
+        private void AddTableWithId(SchemaQualifiedObjectName table, string tableComment, bool useInt64Id = true)
+        {
+            if (!Database.TableExists(table))
+            {
+                List<(string, string)> list = new List<(string, string)>
+                {
+                    ("id", "Идентификатор"),
+                };
+                IEnumerable<Column> first = new Column[1]
+                {
+                    new Column("id", useInt64Id ? DbType.Int64 : DbType.Int32, ColumnProperty.PrimaryKeyWithIdentity)
+                };
+
+                Database.AddTable(table, first.ToArray());
+                Database.CommentTable(table, tableComment);
+                list.ForEach(delegate ((string name, string comment) c)
+                {
+                    Database.CommentColumn(table, c.name, c.comment);
+                });
+            }
+        }
+
+        public override void Up()
+        {
+            AddTable(
+                ShowCaseTables.Form<$short_table_name$>ShowCase,
+                "<$table_rus_name$>",
+                new Column[]
+                {
+                    new Column("calculation_dttm", DbType.DateTime, ColumnProperty.NotNull, null, "Дата расчета"),
+                    new Column("inn", DbType.String.WithSize(50), ColumnProperty.Null, null, "ИНН территориального органа"),
+                    new Column("kpp", DbType.String.WithSize(50), ColumnProperty.Null, null, "КПП территориального органа"),
+                    new Column("full_name", DbType.String.WithSize(8000), ColumnProperty.Null, null, "Наименование территориального органа"),
+                    new Column("datestart", DbType.DateTime, ColumnProperty.NotNull, null, "Дата начала действия"),
+                    new Column("dateend", DbType.DateTime, ColumnProperty.NotNull, null, "Дата окончания действия"),
+                    [??{<$organization$>==%true%}
+                    new Column("organization", DbType.String.WithSize(1000), ColumnProperty.Null, null, "организация"),
+                    ??]
+                    [??{<$organization$>==%false%}
+                    new Column("fio", DbType.String.WithSize(1000), ColumnProperty.Null, null, "ФИО"),
+                    ??]
+                    new Column("tables", DbType.String.WithSize(50), ColumnProperty.Null, null, "таблицы"),
+                    new Column("column_code", DbType.Int32, ColumnProperty.Null, null, "Код колонки"),
+					new Column("column_accuracy", DbType.Int32, ColumnProperty.NotNull, 0, "Тип колонки"),
+					[##<rowCode:%$rowCodes$%
+					new Column("row_code_{%code%}", DbType.String.WithSize(20), ColumnProperty.Null, null, "Код строки {%rowCode%}"),
+					>##]
+                }
+            );
+            
+            AddTable(
+                ShowCaseTables.Form<$short_table_name$>ArchShowCase,
+                "<$table_rus_name$> (архив)",
+                new Column[]
+                {
+                    new Column("calculation_dttm", DbType.DateTime, ColumnProperty.NotNull, null, "Дата расчета"),
+                    new Column("inn", DbType.String.WithSize(50), ColumnProperty.Null, null, "ИНН территориального органа"),
+                    new Column("kpp", DbType.String.WithSize(50), ColumnProperty.Null, null, "КПП территориального органа"),
+                    new Column("full_name", DbType.String.WithSize(8000), ColumnProperty.Null, null, "Наименование территориального органа"),
+                    new Column("datestart", DbType.DateTime, ColumnProperty.NotNull, null, "Дата начала действия"),
+                    new Column("dateend", DbType.DateTime, ColumnProperty.NotNull, null, "Дата окончания действия"),
+                    [??{<$organization$>==%true%}
+                    new Column("organization", DbType.String.WithSize(1000), ColumnProperty.Null, null, "организация"),
+                    ??]
+                    [??{<$organization$>==%false%}
+                    new Column("fio", DbType.String.WithSize(1000), ColumnProperty.Null, null, "ФИО"),
+                    ??]
+                    new Column("tables", DbType.String.WithSize(50), ColumnProperty.Null, null, "таблицы"),
+                    new Column("column_code", DbType.Int32, ColumnProperty.NotNull, null, "Код колонки"),
+					new Column("column_accuracy", DbType.Int32, ColumnProperty.NotNull, 0, "Тип колонки"),
+					[##<rowCode:%$rowCodes$%
+					new Column("row_code_{%rowCode%}", DbType.String.WithSize(20), ColumnProperty.Null, null, "Код строки {%rowCode%}"),
+					>##]
+                }
+            );
+        }
+
+        public override void Down()
+        {
+            Database.RemoveTable(ShowCaseTables.Form<$short_table_name$>ShowCase);
+            Database.RemoveTable(ShowCaseTables.Form<$short_table_name$>ArchShowCase);
+        }
+    }
+}

@@ -1,2 +1,2 @@
-@*.cs
+@some@.cs
             { "<$table_rus_name$>", "Form<$short_table_name$>"},

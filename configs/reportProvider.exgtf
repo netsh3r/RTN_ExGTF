@@ -1,25 +1,32 @@
-@*.cs
-namespace Bars.Rtn.ShowCase.Module.Services.Svody.SvodyReportImpl
+@some@.cs
+namespace Bars.Rtn.ShowCase.Module.Services.Svody
 {
     using Bars.Rtn.ShowCase.Model.Dto.Svody;
+    using Bars.Rtn.ShowCase.Model.Entities;
     using Bars.Rtn.ShowCase.Model.Entities.ShowCaseMapImpl;
     using Bars.Rtn.ShowCase.Model.Interfaces.Svody;
 
-    using System;
+    using System.Globalization;
+    using System.Linq;
 
     /// <summary>
     /// Класс для формирования отчетов по форме <$table_rus_name$> для СВОДов
     /// </summary>
-
-    internal class Form<$short_table_name$>SvodyReport : AbstractSvodyReport<Form<$short_table_name$>ShowCase>
+    public class Form<$short_table_name$>SvodyReport : AbstractSvodyReport<Form<$short_table_name$>ShowCase>
     {
         public Form<$short_table_name$>SvodyReport(ISvodyShowCaseDataProvider<Form<$short_table_name$>ShowCase> svodyShowCaseDataProvider)
             : base(svodyShowCaseDataProvider)
         {
         }
+
         protected override SvodyTableDto[] GetTableData(Form<$short_table_name$>ShowCase[] showCaseData)
         {
-            return GetSectionTableDto(showCaseData);
+            var tableData = new SvodyTableDto[1];
+            tableData[0] = new SvodyTableDto();
+
+            FillTableDto(tableData[0], showCaseData);
+
+            return tableData;
         }
 
         protected override SvodyFreeCellDto[] GetFreeCells(Form<$short_table_name$>ShowCase[] showCaseData)
@@ -28,13 +35,105 @@ namespace Bars.Rtn.ShowCase.Module.Services.Svody.SvodyReportImpl
         }
 
         /// <summary>
-        /// Заполнение блоков "Таблица_1", "Таблица_2" для строки витрины
+        /// Заполнение данных таблиц.
         /// </summary>
-        private SvodyTableDto[] GetSectionTableDto(Form<$short_table_name$>ShowCase[] showCaseDataElements)
+        private void FillTableDto(SvodyTableDto tableDto, Form<$short_table_name$>ShowCase[] showCaseData)
         {
-            return GetSectionTableDtoByGroup(showCaseDataElements);
+            var showCaseDataGrouped = showCaseData.GroupBy(x => x.RfSubject);
+
+            tableDto.TableCode = "<$table_code1$>";
+            tableDto.Rows = new SvodyRowDto[showCaseDataGrouped.Count()];
+            tableDto.FreeCells = null;
+
+            for (var rowNumber = 0; rowNumber < showCaseDataGrouped.Count(); rowNumber++)
+            {
+                var rowDto = tableDto.Rows[rowNumber] = new SvodyRowDto();
+                var showCaseDataGroup = showCaseDataGrouped.ElementAt(rowNumber);
+
+                rowDto.RowCode = rowNumber.ToString();
+                rowDto.Cells = GetRfSubjectCellDto(showCaseDataGroup.Key);
+                rowDto.ModalTables = GetModalTableDto(showCaseDataGroup.ToArray());
+                
+            }
         }
 
-        protected override Func<Form<$short_table_name$>ShowCase, RowCodeGroup> KeySelectorExpression => x => new RowCodeGroup(x.ColumnCode, x.Tables);
+        /// <summary>
+        /// Заполнение блока "Субъекта РФ" для строки витрины.
+        /// </summary>
+        private SvodyCellDto[] GetRfSubjectCellDto(string rfSubjectValue)
+        {
+            var subjectCellDto = new SvodyCellDto[1];
+
+            subjectCellDto[0] = new SvodyCellDto();
+            subjectCellDto[0].ColumnCode = "1";
+            subjectCellDto[0].Cell = GetCellValueDto(rfSubjectValue, "StringType");
+
+            return subjectCellDto;
+        }
+
+        /// <summary>
+        /// Заполнение блока "<$table_code2$>" для строки витрины.
+        /// </summary>
+        private SvodyTableDto[] GetModalTableDto(Form<$short_table_name$>ShowCase[] showCaseDataElements)
+        {
+            var modalTableDto = new SvodyTableDto[1];
+
+            modalTableDto[0] = new SvodyTableDto();
+            modalTableDto[0].TableCode = "<$table_code2$>";
+            modalTableDto[0].FreeCells = null;
+            modalTableDto[0].Rows = GetModalRowDtos(showCaseDataElements);
+
+            return modalTableDto;
+        }
+
+        /// <summary>
+        /// Заполнение строк для блока "<$table_code2$>".
+        /// </summary>
+        private SvodyRowDto[] GetModalRowDtos(Form<$short_table_name$>ShowCase[] showCaseDataElements)
+        {
+            var filledRowCodesG = showCaseDataElements
+                //группируем по ColumnCode если разный и далее пробегаем по массиву группы
+                .GroupBy(x => x.ColumnCode, (key, group) =>
+                    new {
+                        Key = key,
+                        Group = group.Select(y => y.GetType().GetProperties()
+                    .Where(x => x.Name.Contains("RowCode"))
+                    .Select(x => new RowCodeData { Number = x.Name.Substring(7, 3), Value = x.GetValue(y)?.ToString() })
+                    .Where(x => !string.IsNullOrEmpty(x.Value)))
+                .SelectMany(x => x)
+                //групируем одинаковые колонки
+                .GroupBy(x => x.Number,
+                    (key, group) => new RowCodeData
+                    {
+                        Number = key,
+                        Value = group.Select(x => decimal.Parse(x.Value.Replace(',', '.'), CultureInfo.InvariantCulture)).Sum()
+                            .ToString(CultureInfo.InvariantCulture)
+                    })
+                .ToArray()
+                    })
+                .ToArray();
+
+            var rowDto = new SvodyRowDto[filledRowCodesG.SelectMany(x => x.Group).Count()];
+            var propertyNumber = 0;
+            foreach (var filledRowCodes in filledRowCodesG)
+            {
+                foreach (var item in filledRowCodes.Group)
+                {
+                    var modalRowDto = rowDto[propertyNumber] = new SvodyRowDto();
+                    var rowCode = item;
+
+                    modalRowDto.RowCode = rowCode.Number;
+                    modalRowDto.ModalTables = null;
+                    modalRowDto.Cells = new SvodyCellDto[1];
+
+                    modalRowDto.Cells[0] = new SvodyCellDto();
+                    modalRowDto.Cells[0].ColumnCode = filledRowCodes.Key.ToString();
+                    modalRowDto.Cells[0].Cell = GetCellValueDto(rowCode.Value, "NumberType");
+                    propertyNumber++;
+                }
+            }
+
+            return rowDto;
+        }
     }
 }

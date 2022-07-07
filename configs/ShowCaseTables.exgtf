@@ -1,4 +1,8 @@
 @*@.cs
-        /// <summary>Форма <$table_rus_name$></summary>
+        /// <summary>Форма МТ (архив)</summary>
         public static readonly Table Form<$short_table_name$>ShowCase =
             "aggregate.<$table_name$>";
+
+        /// <summary>Форма МТ (архив)</summary>
+        public static readonly Table Form<$short_table_name$>ArchShowCase =
+            "aggregate.<$table_name$>_arch";

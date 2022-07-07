@@ -1,0 +1,99 @@
+{
+    "error": null,
+    "report": {
+        "freeCells": null,
+        "tableData": [
+            {
+                "freeCells": null,
+                "rows": [
+                    {
+                        "cells": [
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "2",
+                                    "value": "2"
+                                },
+                                "columnCode": "3"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "2",
+                                    "value": "2"
+                                },
+                                "columnCode": "5"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "1",
+                                    "value": "1"
+                                },
+                                "columnCode": "4"
+                            }
+                        ],
+                        "modalTables": null,
+                        "rowCode": "001"
+                    },
+                    {
+                        "cells": [
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "4",
+                                    "value": "4"
+                                },
+                                "columnCode": "3"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "4",
+                                    "value": "4"
+                                },
+                                "columnCode": "5"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "1",
+                                    "value": "1"
+                                },
+                                "columnCode": "4"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "3",
+                                    "value": "3"
+                                },
+                                "columnCode": "9"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "1",
+                                    "value": "1"
+                                },
+                                "columnCode": "13"
+                            },
+                            {
+                                "cell": {
+                                    "type": "NumberType",
+                                    "typedValue": "1",
+                                    "value": "1"
+                                },
+                                "columnCode": "17"
+                            }
+                        ],
+                        "modalTables": null,
+                        "rowCode": "025"
+                    }
+                ],
+                "tableCode": "Таблица"
+            }
+        ]
+    },
+    "successfully": true
+}
